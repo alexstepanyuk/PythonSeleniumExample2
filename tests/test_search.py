@@ -26,6 +26,8 @@ class TestDemoqaRadioButton(BaseTest):
 
     def test_radios(self, load_pages):
         self.page.check_yes_radio()
+        self.page.check_imp_radio()
+        self.page.check_no_radio()
 
     # def test_search(self, load_pages):
     #     self.page.make_a_search("Selenium")

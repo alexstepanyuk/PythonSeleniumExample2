@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from data.locators import *
-
+from time import sleep
 
 class SearchPage(BasePage):
 
@@ -37,12 +37,28 @@ class DemoqaRadioButtonPage(BasePage):
         assert self.get_title() == title
 
     def check_yes_radio(self):
-        yes_div =  self.driver.find_element(*self.locator.YES_DIV)
-        self.driver.execute_script("arguments[0].click();", yes_div)
-        self.wait.until(EC.presence_of_element_located(self.locator.RESULTS))
-        assert (self.driver.find_element(*self.locator.RESULTS).text() == "Yes")
+        self.driver.find_element(*self.locator.YES_TEXT).click()
+        sleep(1)
+        res = self.driver.find_element(*self.locator.RESULTS).text
+        assert res == "Yes"
 
+    def check_imp_radio(self):
+        self.driver.find_element(*self.locator.IMP_TEXT).click()
+        sleep(1)
+        res = self.driver.find_element(*self.locator.RESULTS).text
+        assert res == "Impressive"
 
+    def check_no_radio(self):
+        self.driver.find_element(*self.locator.NO_TEXT).click()
+        sleep(1)
+        try:
+            res = self.driver.find_element(*self.locator.RESULTS).text
+            if res == "Impressive" or res == "Yes" or res == "No":
+                raise
+        except:
+            assert True
+        else:
+            assert False
 
     def make_a_search(self, input_text):
         self.driver.find_element(*self.locator.SEARCH_INPUT).send_keys(input_text)
