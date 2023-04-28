@@ -14,10 +14,3 @@ class TextBoxLocators():
     B1 = (By.XPATH, '//*[@id="submit"]')
     RESULTS = (By.XPATH, '//*[@id="output"]/div')
 
-class TextBoxLocators:
-    TB1 = (By.XPATH, "//*[@id='userName']")
-    TB2 = (By.XPATH, "//*[@id='userEmail']")
-    TB3 = (By.XPATH, "//*[@id='currentAddress']")
-    TB4 = (By.XPATH, "//*[@id='permanentAddress']")
-    B1 = (By.XPATH, "//*[@id='submit']")
-    RESULTS = (By.XPATH, '//*[@id="output"]/div')
