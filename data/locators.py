@@ -14,3 +14,7 @@ class DemoqaRadioButtonPageLocators:
     YES_TEXT = (By.XPATH, "//*[@for='yesRadio']")
     IMP_TEXT = (By.XPATH, "//*[@for='impressiveRadio']")
     NO_TEXT = (By.XPATH, "//*[@for='noRadio']")
+
+    YES_RADIO = (By.XPATH, "//*[@id='yesRadio']")
+    IMP_RADIO = (By.XPATH, "//*[@id='impressiveRadio']")
+    NO_RADIO = (By.XPATH, "//*[@id='noRadio']")

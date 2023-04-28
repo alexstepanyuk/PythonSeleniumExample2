@@ -18,7 +18,6 @@ from tests.base_test import BaseTest
 #         self.page.make_a_search("Selenium")
 
 class TestDemoqaRadioButton(BaseTest):
-
     @pytest.fixture
     def load_pages(self):
         self.page = DemoqaRadioButtonPage(self.driver, self.wait)
@@ -29,5 +28,3 @@ class TestDemoqaRadioButton(BaseTest):
         self.page.check_imp_radio()
         self.page.check_no_radio()
 
-    # def test_search(self, load_pages):
-    #     self.page.make_a_search("Selenium")
