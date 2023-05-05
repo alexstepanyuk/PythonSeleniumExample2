@@ -15,3 +15,4 @@ class TestSearch(BaseTest):
 
     def test_search(self, load_pages):
         self.page.make_a_search("Selenium")
+

@@ -37,6 +37,8 @@ class BaseTest:
                 options.add_argument('--no-sandbox')
                 options.add_argument('--disable-gpu')
                 options.add_argument('--window-size=1920,1080')
+            options.add_argument('--ignore-certificate-errors')
+            options.add_argument('--ignore-ssl-errors')
             self.driver = webdriver.Chrome(service=ServiceChrome(ChromeDriverManager().install()), options=options)
         elif config()['browser'] == 'firefox':
             options = webdriver.FirefoxOptions()
@@ -45,7 +47,19 @@ class BaseTest:
                 options.add_argument('--no-sandbox')
                 options.add_argument('--disable-gpu')
                 options.add_argument('--window-size=1920,1080')
+            options.add_argument('--ignore-certificate-errors')
+            options.add_argument('--ignore-ssl-errors')
             self.driver = webdriver.Firefox(service=ServiceFirefox(GeckoDriverManager().install()), options=options)
+        elif config()['browser'] == 'edge':
+            options = webdriver.EdgeOptions()
+            if config()['headless']:
+                options.add_argument('--headless')
+                options.add_argument('--no-sandbox')
+                options.add_argument('--disable-gpu')
+                options.add_argument('--window-size=1920,1080')
+            options.add_argument('--ignore-certificate-errors')
+            options.add_argument('--ignore-ssl-errors')
+            self.driver = webdriver.ChromiumEdge(service=ServiceChrome(ChromeDriverManager().install()), options=options)
         else:
             raise Exception("Incorrect Browser")
 
